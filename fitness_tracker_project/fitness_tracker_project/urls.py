@@ -19,4 +19,5 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('exercises/', views.exercise_list, name='exercise_list'),
 ]
