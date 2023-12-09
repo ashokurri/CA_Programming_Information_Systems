@@ -29,4 +29,36 @@
         });
     });
 
+    $('#add-exercise-form').submit(function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: '/add-exercise/',
+            type: 'POST',
+            data: JSON.stringify({
+                name: $('#name').val(),
+                duration: $('#duration').val(),
+                calories: $('#calories').val(),
+                date: $('#date').val()
+            }),
+            contentType: 'application/json',
+            success: function (data) {
+            
+                $.ajax({
+                    url: '/exercises/',
+                    type: 'GET',
+                    success: function (data) {
+                        renderExerciseList(data);
+                    },
+                    error: function (error) {
+                        console.log('Error fetching exercises:', error);
+                    }
+                });
+            },
+            error: function (error) {
+                console.log('Error adding exercise:', error);
+            }
+        });
+    });
+
+
     
