@@ -3,6 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Exercise List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <h1>Exercise List</h1>
@@ -10,12 +50,24 @@
 
     </ul>
 
-<form id="add-exercise-form">   </form>
+    <form id="add-exercise-form">
+        <label for="name">Exercise Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
 
+        <label for="duration">Duration (minutes):</label>
+        <input type="number" id="duration" name="duration" required><br><br>
 
- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
+        <label for="calories">Calories Burned:</label>
+        <input type="number" id="calories" name="calories" required><br><br>
 
-    </script>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <button type="submit">Add Exercise</button>
+    </form>
+
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>    
+ <script src="../JS/fitness_tracker.js"></script>
+   
 </body>
 </html>
