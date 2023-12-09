@@ -16,4 +16,17 @@
         });
     }
 
-   
+    $(document).ready(function () {
+        $.ajax({
+            url: '/exercises/',
+            type: 'GET',
+            success: function (data) {
+                renderExerciseList(data);
+            },
+            error: function (error) {
+                console.log('Error fetching exercises:', error);
+            }
+        });
+    });
+
+    
