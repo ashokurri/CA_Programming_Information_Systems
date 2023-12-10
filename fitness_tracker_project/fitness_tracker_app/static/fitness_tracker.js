@@ -48,7 +48,7 @@
                 });
             },
             error: function (error) {
-                console.log('Error adding exercise:', error);
+                alert('Error adding exercise:' + error.responseJSON.message);
             }
         });
     });  
