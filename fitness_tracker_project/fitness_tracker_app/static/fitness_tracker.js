@@ -52,7 +52,41 @@
 
     $('#edit-exercise-form').submit(function (event) {
 
-        
+        event.preventDefault();
+    const formData = {
+        name: $('#edit-name').val(),
+        duration: $('#edit-duration').val(),
+        calories: $('#edit-calories').val(),
+        date: $('#edit-date').val()
+    };
+
+    const exerciseId = 
+
+    $.ajax({
+        url: `/edit-exercise/${exerciseId}/`,
+        type: 'POST',
+        data: JSON.stringify(formData),
+        contentType: 'application/json',
+        success: function (data) {
+            console.log('Exercise updated successfully:', data);
+            
+            $('#editExerciseModal').modal('hide');
+           
+            $.ajax({
+                url: '/exercises/',
+                type: 'GET',
+                success: function (data) {
+                    renderExerciseList(data);
+                },
+                error: function (error) {
+                    console.log('Error fetching exercises:', error);
+                }
+            });
+        },
+        error: function (error) {
+            console.log('Error updating exercise:', error);
+        }
+    });
 
 
     });
