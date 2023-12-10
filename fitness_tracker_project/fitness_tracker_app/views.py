@@ -3,6 +3,8 @@ from django.http import JsonResponse
 from .models import Exercise
 from django.views.decorators.csrf import csrf_exempt
 import json
+def home(request):
+    return render(request, 'exercise_list.html')
 
 def exercise_list(request):
     exercises = Exercise.objects.all()
