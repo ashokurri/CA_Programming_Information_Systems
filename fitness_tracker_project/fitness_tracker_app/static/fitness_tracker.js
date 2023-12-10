@@ -60,7 +60,7 @@
         date: $('#edit-date').val()
     };
 
-    const exerciseId = $('#edit-exercise-form').data('exercise-id');
+    const exerciseId = $('#edit-exercise-id').val();
 
     $.ajax({
         url: `/edit-exercise/${exerciseId}/`,
@@ -97,23 +97,25 @@
         // Function to get the exercise list
         function renderExerciseList(data) {
             $('#exercise-list').empty();
-            data.forEach(function(exercise) {
+            data.forEach(function (exercise) {
                 const exerciseItem = $(`
-            <li class="exercise-item" data-exercise-id="${exercise.id}">
-                <div>
-                    <strong>${exercise.name}</strong><br>
-                    Duration: ${exercise.duration} minutes<br>
-                    Calories Burned: ${exercise.calories_burned}<br>
-                    Date: ${exercise.date}
-                </div>
-                <div class="icon-container">
-                <i class="fas fa-edit edit-icon" onclick="editExercise(${exercise.id})"></i>
-                <i class="fas fa-trash delete-icon" onclick="deleteExercise(${exercise.id})"></i>
-                </div></li>
-        `);
-        $('#exercise-list').append(exerciseItem);
+                    <li class="exercise-item" data-exercise-id="${exercise.id}">
+                        <div>
+                            <strong>${exercise.name}</strong><br>
+                            Duration: ${exercise.duration} minutes<br>
+                            Calories Burned: ${exercise.calories_burned}<br>
+                            Date: ${exercise.date}
+                        </div>
+                        <div class="icon-container">
+                            <i class="fas fa-edit edit-icon" onclick="editExercise(${exercise.id})"></i>
+                            <i class="fas fa-trash delete-icon" onclick="deleteExercise(${exercise.id})"></i>
+                        </div>
+                    </li>
+                `);
+                $('#exercise-list').append(exerciseItem);
             });
         }
+        
     
         $(document).ready(function () {
             $.ajax({
@@ -190,7 +192,7 @@
                 url: `/edit-exercise/${exerciseId}/`,
                 type: 'GET',  
                 success: function (data) {
-                    
+                    $('#edit-exercise-id').val(exerciseId);
                     $('#edit-name').val(data.name);
                     $('#edit-duration').val(data.duration);
                     $('#edit-calories').val(data.calories_burned);
