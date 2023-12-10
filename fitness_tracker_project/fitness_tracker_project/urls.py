@@ -24,6 +24,7 @@ urlpatterns = [
     path('exercises/', views.exercise_list, name='exercise_list'),
     path('add-exercise/', views.add_exercise, name='add_exercise'),
     path('edit-exercise/<int:exercise_id>/', views.edit_exercise, name='edit_exercise'),
+    path('delete-exercise/<int:exercise_id>/', views.delete_exercise, name='delete_exercise'),
     path('', views.home, name='home'),
 ]
 
