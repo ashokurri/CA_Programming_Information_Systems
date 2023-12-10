@@ -15,6 +15,42 @@
         }
     });
 
+    $('#add-exercise-form').submit(function (event) {
+        event.preventDefault();
+        const formData = {
+            name: $('#name').val(),
+            duration: $('#duration').val(),
+            calories: $('#calories').val(),
+            date: $('#date').val()
+        };
+
+        $.ajax({
+            url: '/add-exercise/',
+            type: 'POST',
+            data: JSON.stringify(formData),
+            contentType: 'application/json',
+            success: function (data) {
+                console.log('Exercise added successfully:', data);
+
+                $.ajax({
+                    url: '/exercises/',
+                    type: 'GET',
+                    success: function (data) {
+                        renderExerciseList(data);
+                    },
+                    error: function (error) {
+                        console.log('Error fetching exercises:', error);
+                    }
+                });
+            },
+            error: function (error) {
+                console.log('Error adding exercise:', error);
+            }
+        });
+    });  
+
+    });
+
     });
 
 
