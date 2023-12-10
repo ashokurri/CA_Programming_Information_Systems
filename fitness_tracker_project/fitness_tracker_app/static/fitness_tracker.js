@@ -31,7 +31,11 @@
             contentType: 'application/json',
             success: function (data) {
                 console.log('Exercise added successfully:', data);
-
+                $('#name').val('');
+                $('#duration').val('');
+                $('#calories').val('');
+                $('#date').val('');
+                $('#addExerciseModal').modal('hide');
                 $.ajax({
                     url: '/exercises/',
                     type: 'GET',
