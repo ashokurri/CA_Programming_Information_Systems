@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from .models import Exercise
 from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import get_object_or_404
 import json
 def home(request):
     return render(request, 'exercise_list.html')
@@ -32,3 +33,25 @@ def delete_exercise(request, exercise_id):
         return JsonResponse({'message': 'Exercise deleted successfully'})
     except Exercise.DoesNotExist:
         return JsonResponse({'message': 'Exercise does not exist'}, status=404)
+    
+@csrf_exempt
+def edit_exercise(request, exercise_id):
+    exercise = get_object_or_404(Exercise, pk=exercise_id)
+
+    if request.method == 'POST':
+        body = json.loads(request.body)
+        exercise.name = body.get('name', exercise.name)
+        exercise.duration = body.get('duration', exercise.duration)
+        exercise.calories_burned = body.get('calories', exercise.calories_burned)
+        exercise.date = body.get('date', exercise.date)
+        exercise.save()
+
+        return JsonResponse({'message': 'Exercise updated successfully'})
+
+    data = {
+        'name': exercise.name,
+        'duration': exercise.duration,
+        'calories_burned': exercise.calories_burned,
+        'date': exercise.date
+    }
+    return JsonResponse(data)    

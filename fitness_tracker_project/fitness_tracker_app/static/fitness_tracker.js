@@ -51,8 +51,6 @@
 
     });
 
-
-
         // Function to get the exercise list
         function renderExerciseList(data) {
             $('#exercise-list').empty();
