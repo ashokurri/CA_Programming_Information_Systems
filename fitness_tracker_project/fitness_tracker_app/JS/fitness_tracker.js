@@ -84,3 +84,10 @@
         });
     }
 
+    (document).ready(function () {
+
+    $('#addExerciseButton').click(function () {
+        $('#addExerciseModal').modal('show');
+    });
+
+    });
