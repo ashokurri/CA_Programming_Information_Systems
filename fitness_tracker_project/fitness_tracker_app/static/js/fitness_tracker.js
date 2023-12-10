@@ -11,17 +11,19 @@
         function renderExerciseList(data) {
             $('#exercise-list').empty();
             data.forEach(function(exercise) {
-                $('#exercise-list').append(`
-                    <li>
-                        <div>
-                            <strong>${exercise.name}</strong><br>
-                            Duration: ${exercise.duration} minutes<br>
-                            Calories Burned: ${exercise.calories_burned}<br>
-                            Date: ${exercise.date}
-                        </div>
-                        <button onclick="deleteExercise(${exercise.id})">Delete</button>
-                    </li>
-                `);
+                const exerciseItem = $(`
+            <li class="exercise-item">
+                <div>
+                    <strong>${exercise.name}</strong><br>
+                    Duration: ${exercise.duration} minutes<br>
+                    Calories Burned: ${exercise.calories_burned}<br>
+                    Date: ${exercise.date}
+                </div>
+                <i class="fas fa-pencil edit-icon" onclick="editExercise(${exercise.id})"></i>
+                <i class="fas fa-trash delete-icon" onclick="deleteExercise(${exercise.id})"></i>
+            </li>
+        `);
+        $('#exercise-list').append(exerciseItem);
             });
         }
     
