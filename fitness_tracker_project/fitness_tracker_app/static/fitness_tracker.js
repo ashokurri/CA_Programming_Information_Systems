@@ -168,6 +168,9 @@
     
         //deleting exercise
         function deleteExercise(exerciseId) {
+            const confirmDelete = confirm('Are you sure you want to delete this exercise?');
+            if(confirmDelete)
+            {
             $.ajax({
                 url: `/delete-exercise/${exerciseId}/`,
                 type: 'DELETE',
@@ -187,6 +190,7 @@
                     console.log('Error deleting exercise:', error);
                 }
             });
+        }
         }
 
 
