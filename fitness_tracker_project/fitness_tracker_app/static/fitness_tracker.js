@@ -51,7 +51,6 @@
 
     });
 
-    });
 
 
         // Function to get the exercise list
