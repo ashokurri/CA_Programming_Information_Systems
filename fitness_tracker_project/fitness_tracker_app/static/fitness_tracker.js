@@ -66,7 +66,7 @@
                     Date: ${exercise.date}
                 </div>
                 <div class="icon-container">
-                <i class="fas fa-pencil edit-icon" onclick="editExercise(${exercise.id})"></i>
+                <i class="fas fa-edit edit-icon" onclick="editExercise(${exercise.id})"></i>
                 <i class="fas fa-trash delete-icon" onclick="deleteExercise(${exercise.id})"></i>
                 </div></li>
         `);
