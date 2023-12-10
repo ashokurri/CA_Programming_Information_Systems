@@ -60,7 +60,7 @@
         date: $('#edit-date').val()
     };
 
-    const exerciseId = 
+    const exerciseId = $('#edit-exercise-form').data('exercise-id');
 
     $.ajax({
         url: `/edit-exercise/${exerciseId}/`,
@@ -99,7 +99,7 @@
             $('#exercise-list').empty();
             data.forEach(function(exercise) {
                 const exerciseItem = $(`
-            <li class="exercise-item">
+            <li class="exercise-item" data-exercise-id="${exercise.id}">
                 <div>
                     <strong>${exercise.name}</strong><br>
                     Duration: ${exercise.duration} minutes<br>
