@@ -1,7 +1,18 @@
-    (document).ready(function () {
+    $(document).ready(function () {
 
     $('#addExerciseButton').click(function () {
         $('#addExerciseModal').modal('show');
+    });
+
+    $.ajax({
+        url: '/exercises/',
+        type: 'GET',
+        success: function (data) {
+            renderExerciseList(data);
+        },
+        error: function (error) {
+            console.log('Error fetching exercises:', error);
+        }
     });
 
     });
