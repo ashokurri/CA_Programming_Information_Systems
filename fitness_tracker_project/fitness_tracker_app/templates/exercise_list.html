@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <style>
+
+        .icon-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px; 
+        }
         .exercise-item {
             position: relative;
         }
@@ -14,16 +20,17 @@
         .edit-icon, .delete-icon {
             position: absolute;
             top: 10px;
-            right: 10px;
             cursor: pointer;
         }
 
         .delete-icon {
-            color: #d9534f;
+            color: #d9534f;            
+            right: 10px;
         }
 
         .edit-icon {
-            color: #5bc0de;
+            color: #5bc0de;            
+            right: 30px;
         }
 
         body {
@@ -76,7 +83,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>    
     
 
-    <script src="../static/fitness_tracker.js"></script>
+    <script src="{% static 'fitness_tracker.js' %}"></script>
+
 
     <link rel="shortcut icon" type="image/png" href="{% static 'tracker.png' %}">
 </head>
@@ -161,8 +169,6 @@
 
                 </form>
 
-                <button type="submit" class="btn btn-primary">Save Changes</button>
-            </form>
         </div>
     </div>
 </div>

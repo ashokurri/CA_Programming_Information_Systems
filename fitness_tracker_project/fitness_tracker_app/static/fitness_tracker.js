@@ -65,9 +65,10 @@
                     Calories Burned: ${exercise.calories_burned}<br>
                     Date: ${exercise.date}
                 </div>
+                <div class="icon-container">
                 <i class="fas fa-pencil edit-icon" onclick="editExercise(${exercise.id})"></i>
                 <i class="fas fa-trash delete-icon" onclick="deleteExercise(${exercise.id})"></i>
-            </li>
+                </div></li>
         `);
         $('#exercise-list').append(exerciseItem);
             });
