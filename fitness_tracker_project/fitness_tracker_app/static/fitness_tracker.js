@@ -49,6 +49,15 @@
         });
     });  
 
+
+    $('#edit-exercise-form').submit(function (event) {
+
+        
+
+
+    });
+
+
     });
 
         // Function to get the exercise list
