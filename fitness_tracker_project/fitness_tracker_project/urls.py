@@ -16,9 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from . import views
+from fitness_tracker_app import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('exercises/', views.exercise_list, name='exercise_list'),
+    path('', views.home, name='home'),
 ]

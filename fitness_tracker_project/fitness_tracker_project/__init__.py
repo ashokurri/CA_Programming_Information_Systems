@@ -1,1 +1,0 @@
-from fitness_tracker_project import views
