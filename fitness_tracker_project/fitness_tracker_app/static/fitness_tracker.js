@@ -139,3 +139,26 @@
                 }
             });
         }
+
+
+        function editExercise(exerciseId) {
+    
+            $.ajax({
+                url: `/edit-exercise/${exerciseId}/`,
+                type: 'GET',  
+                success: function (data) {
+                    
+                    $('#edit-name').val(data.name);
+                    $('#edit-duration').val(data.duration);
+                    $('#edit-calories').val(data.calories_burned);
+                    $('#edit-date').val(data.date);
+        
+                    
+                    $('#editExerciseModal').modal('show');
+                },
+                error: function (error) {
+                    console.log('Error fetching exercise details:', error);
+                }
+            });
+        }
+
