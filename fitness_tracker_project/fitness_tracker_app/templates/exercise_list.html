@@ -6,80 +6,8 @@
     <title>Leo Fitness Tracker</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <style>
+    <link rel="stylesheet" type="text/css" href="{% static 'fitness_tracker.css' %}">
 
-        .icon-container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px; 
-        }
-        .exercise-item {
-            position: relative;
-        }
-
-        .edit-icon, .delete-icon {
-            position: absolute;
-            top: 10px;
-            cursor: pointer;
-        }
-
-        .delete-icon {
-            color: #d9534f;            
-            right: 10px;
-        }
-
-        .edit-icon {
-            color: #5bc0de;            
-            right: 30px;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        li {
-            border: 1px solid #ddd;
-            margin-bottom: 10px;
-            padding: 10px;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        form {
-            margin-top: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-        }
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-        .logo {
-            height: 90px;
-            margin-right: 10px; /* Adjust as needed to create space between the logo and text */
-        }
-    </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>    
     
 
