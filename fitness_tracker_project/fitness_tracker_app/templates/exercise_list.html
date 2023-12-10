@@ -70,12 +70,13 @@
 
     <script src="../static/fitness_tracker.js"></script>
 
-
+    <link rel="shortcut icon" type="image/png" href="{% static 'tracker.png' %}">
 </head>
 <body>
     <div class="container">
         <div class="jumbotron">
-            <h1 class="display-4">Fitness Tracker</h1>
+            <img src="{% static 'tracker.png' %}" alt="Website Logo" class="logo">
+            <h1 class="display-4">Leo Fitness Tracker</h1>
         </div>
 
         <button id="addExerciseButton" class="btn btn-success mb-3" data-toggle="modal" data-target="#addExerciseModal">
